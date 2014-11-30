@@ -10,6 +10,7 @@
 
 @interface ViewController : NSViewController
 
+- (void) keyDown:(NSEvent *)theEvent;
 
 @end
 

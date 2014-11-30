@@ -58,4 +58,20 @@
     [self.label setStringValue:@"Goodbye"];
 }
 
+- (void) keyDown:(NSEvent *)theEvent {
+    NSLog(@"keyDown");
+    switch ([theEvent keyCode]) {
+        case 123:
+            NSLog(@"back arrow");
+            break;
+        case 124:
+            NSLog(@"next arrow");
+            break;
+            
+        default:
+            break;
+    }
+    NSLog(@"%d", [theEvent keyCode]);
+}
+
 @end
