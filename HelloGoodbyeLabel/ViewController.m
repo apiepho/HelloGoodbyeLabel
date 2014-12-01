@@ -18,28 +18,6 @@
     [super viewDidLoad];
 
     // Do any additional setup after loading the view.
-    
-    // WORKAROUND: wanted to use First Responder for Menu Items, but could never get it working.  Instead,
-    // we will manually find our menu items and change the action selector.
-    
-    NSMenu *mainMenu = [[NSApplication sharedApplication] mainMenu];
-    NSInteger ourIndex = 0;
-    for (NSMenuItem *item in [mainMenu itemArray]) {
-        NSLog(@"%@", [item title]);
-        if ([@"Ours" isEqualToString:[item title]]) {
-            NSMenu *appMenu = [[mainMenu itemAtIndex:ourIndex] submenu];
-            for (NSMenuItem *item in [appMenu itemArray]) {
-                NSLog(@"%@", [item title]);
-                if ([@"Say Hello" isEqualToString:[item title]]) {
-                    [item setAction:@selector(sayHello:)];
-                }
-                if ([@"Say Goodbye" isEqualToString:[item title]]) {
-                    [item setAction:@selector(sayGoodbye:)];
-                }
-            }
-        }
-        ourIndex++;
-    }
 }
 
 - (void)setRepresentedObject:(id)representedObject {
@@ -48,16 +26,17 @@
     // Update the view, if already loaded.
 }
 
-- (IBAction)sayHello:(id)sender {
+// first responder methods custom menu items
+- (void)sayHello:(id)sender {
     NSLog(@"Hello");
     [self.label setStringValue:@"Hello"];
 }
-
-- (IBAction)sayGoodbye:(id)sender {
+- (void)sayGoodbye:(id)sender {
     NSLog(@"Goodbye");
     [self.label setStringValue:@"Goodbye"];
 }
 
+// first responder methods for keyDown
 - (void) keyDown:(NSEvent *)theEvent {
     NSLog(@"keyDown");
     switch ([theEvent keyCode]) {

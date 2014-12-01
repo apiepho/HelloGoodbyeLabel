@@ -629,9 +629,15 @@
                                     <items>
                                         <menuItem title="Say Hello" id="cxv-ZB-yWQ">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="sayHello:" target="Ady-hI-5gd" id="nqp-tP-EaB"/>
+                                            </connections>
                                         </menuItem>
                                         <menuItem title="Say Goodbye" id="5Xy-HD-wTJ">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="sayGoodbye:" target="Ady-hI-5gd" id="bpd-XC-Evy"/>
+                                            </connections>
                                         </menuItem>
                                     </items>
                                 </menu>
